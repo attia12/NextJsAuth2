@@ -30,7 +30,24 @@ const UserProfileForm = ({ user }) => {
     }
 
     
-    alert("User info saved successfully!");
+    try {
+      const response = await axios.post("/api/user", {
+        firstName,
+        lastName,
+        birthDate: birthdate,
+        address,
+        phoneNumber,
+      });
+
+      if (response.status === 200) {
+        alert("User info saved successfully!");
+      } else {
+        alert("Failed to save user info.");
+      }
+    } catch (error) {
+      console.error("Error saving user info:", error);
+      alert("An error occurred while saving your information.");
+    }
   };
   const getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) => {
     const R = 6371; // Radius of the Earth in km

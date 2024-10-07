@@ -13,6 +13,7 @@ export default async function UserProfile() {
     
    
    if (!session) return redirect("/profile");
+   
    return  <div>
    <h1>Edit Profile</h1>
    <UserProfileForm user={user} />
