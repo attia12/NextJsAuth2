@@ -39,6 +39,7 @@ export async function POST(request) {
     },
   });
 }
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 export async function GET(req) {
   const session = await auth();
